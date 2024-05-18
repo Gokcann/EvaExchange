@@ -23,7 +23,7 @@ const userList = async(req,resp) => {
 const findOneUser = async(req,resp) => {
     //const user_id = req.params.id;
     await userService.findOneById(req.params.id)
-    then((data) => {
+    .then((data) => {
         resp.send({
             data: data,
             msg: "Success",
@@ -45,7 +45,6 @@ const createUser = async (req,resp) => {
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
-        username: req.body.username,
         password: req.body.password,
     }
     await userService.create(userOBj)
@@ -57,8 +56,9 @@ const createUser = async (req,resp) => {
             err:''
         })
     }).catch( (err) => {
+        console.error(err);
         resp.send({
-            data: null,
+            data: err,
             msg: "Error",
             status:500,
             err:err
@@ -71,11 +71,10 @@ const updateUser = async(req,resp) => {
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
-        username: req.body.username,
         password: req.body.password,
     }
     await userService.update(userOBj, req.body.id)
-    then((data) => {
+    .then((data) => {
         resp.send({
             data: data,
             msg: "Success",
@@ -94,7 +93,7 @@ const updateUser = async(req,resp) => {
 
 const deleteUser = async(req,resp) => {
     await userService.deleted(req.body.id)
-    then((data) => {
+    .then((data) => {
         resp.send({
             data: data,
             msg: "Success",

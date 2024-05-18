@@ -1,5 +1,5 @@
 const db = require('../models');
-const user_model = db.Users;
+const user_model = db.User;
 
 exports.getUsers = (() => {
     try {
