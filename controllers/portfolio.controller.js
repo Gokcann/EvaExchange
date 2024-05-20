@@ -21,7 +21,6 @@ const portfolioList = async(req,resp) => {
 }
 
 const findOnePortfolio = async(req,resp) => {
-    //const user_id = req.params.id;
     await portfolioService.findOneById(req.params.id)
     .then((data) => {
         resp.send({

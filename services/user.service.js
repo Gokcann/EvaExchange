@@ -17,13 +17,32 @@ exports.getUsers = (() => {
 });
 
 exports.findOneById = async (id) => {
-    return user_model.findOne({
-        where:{id:id}
-    })
+    try {
+        return user_model.findOne({
+            where:{id:id}
+        })
+    }catch(err) {
+        return data = {
+            msg:'error',
+            status: 500,
+            data:null,
+            txt: err.message
+    } }
+    
 }
 
 exports.create = async(userObj) => {
-    return await user_model.create(userObj);
+    try {
+        return await user_model.create(userObj);
+    } catch(err) {
+        return data = {
+            msg:'error',
+            status: 500,
+            data:null,
+            txt: err.message
+    }
+    }
+    
 }
 
 exports.update = async(userObj, id) => {

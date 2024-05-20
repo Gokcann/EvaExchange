@@ -4,7 +4,6 @@ const portfolio = db.Portfolio;
 const share = db.Share;
 const portfolioDetail = db.PortfolioDetail;
 const err = require('../exception/errorLibrary');
-//const err = error.BadRequest;
   
 
 
@@ -25,7 +24,6 @@ class Order {
           throw new err.BadRequest("the symbol must consist of exactly 3 letters.");
         }
       
-        // Değerin sadece büyük harflerden oluştuğunu kontrol edelim
         const upperCaseRegex = /^[A-Z]{3}$/;
         if ( !upperCaseRegex.test(this.symbol) ) {
           throw new err.BadRequest("symbol should be uppercase");
@@ -86,7 +84,7 @@ console.log(e);
         
     } catch (e) {
       console.error(e);
-      //throw new err.BadRequest('Error fetching total share quantity');
+      throw new err.BadRequest('Error fetching total share quantity');
     }
     console.log(totalQuantity);
     console.log(this.quantity);
@@ -104,6 +102,7 @@ console.log(e);
         });
   }catch(e) {
 console.log(e);
+throw new err.BadRequest('Error portfolio detail create!');
   }
     }
     else {

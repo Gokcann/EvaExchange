@@ -4,9 +4,7 @@ const order = require('../business/order')
 const buy = async(req,resp) => {
     try {
         const process = new order.Buy(req.body.userId,req.body.quantity,req.body.symbol);
-        /*process.userId = req.userId;
-        process.quantity = req.quantity;
-        process.symbol = req.symbol;*/
+        
         await process.firstCheck();
         await process.portfolioControl();
         await process.shareControl();

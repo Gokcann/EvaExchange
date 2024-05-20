@@ -13,7 +13,7 @@ app.use('/api', apiRoute)
     resp.send("API is running");
 })
 */
-app.listen(2000, '0.0.0.0', () => {
+app.listen(3000, '0.0.0.0', () => {
     console.log("API service running");
 })
 
