@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'PortfolioDetail',
-    timestamps: false
+    timestamps: false,
+    //freezeTableName: true
   });
   return PortfolioDetail;
 };

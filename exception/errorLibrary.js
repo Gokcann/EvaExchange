@@ -73,3 +73,10 @@ const DEFAULT_ERRORS = {
     }
   }
   
+  module.exports = {
+    InternalServer,
+    BadRequest,
+    NotFoundError,
+    ApiError,
+    BaseError
+}
