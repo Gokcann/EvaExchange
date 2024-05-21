@@ -50,7 +50,6 @@ console.log(e);
   }
 }
 
-
     //first check the existence of the portfolio.
     async portfolioControl() {
         this.portfolio = await portfolio.findOne({ where: { userId: this.userId } });
@@ -89,7 +88,6 @@ console.log(e);
     console.log(totalQuantity);
     console.log(this.quantity);
     if (totalQuantity - this.quantity >= 0) {
-      console.log('save port');
       var totalPrice = -1 * this.share.sharePrice * this.quantity;
       //create portfolioDetail
       console.log('save in');
@@ -127,18 +125,15 @@ class Buy extends Order {
     }
   
     async portfolioControl() {
-      console.log('log6');
       await super.portfolioControl();
 
     }
 
     async shareControl() {
-      console.log('log7');
         await super.shareControl();
     }
     
     async savePortfolioDetail() {
-      console.log('log8');
         await super.savePortfolioDetail();
     }
   
